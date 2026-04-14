@@ -1,26 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import ClassState from './Components/ClassState'
 
-import './App.css'
+import Todo from './Components/Todo';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    
-     
-        <div className="hero">
-            <h1 className="text-center">UsteState Hooks</h1>
-            
-            <ClassState /> 
+    return (
+        <div className="container text-center mt-4">
+            <h1>To-do list App</h1>
+           <div className="container mt-4">
+                <Todo />
+            </div>
         </div>
-
-
-      
-  )
+    );
 }
-
-export default App
+export default App;
