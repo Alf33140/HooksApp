@@ -1,4 +1,5 @@
 import React from "react";
+import ProfileData from "./ProfileData";
 
 class Profile extends React.Component {
 
@@ -11,4 +12,4 @@ class Profile extends React.Component {
     }
 }
 
-export default Profile
+export default Profile;

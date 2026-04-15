@@ -2,6 +2,9 @@
 import ClassCount from './Components/ClassCount';
 import FonctionCount from './Components/FonctionCount';
 import Todo from './Components/Todo';
+import {UserContext,ColorContext} from './Components/MyContext';
+import { useState } from 'react';
+import Profile from './Components/Profile';
 
 
 
@@ -19,7 +22,11 @@ function App() {
                 {/* <Todo /> */}
                 {/* <ClassCount /> */}
                 {/* <FonctionCount /> */}
-                <Profile />
+                <UserContext.Provider value= {user}>
+                    <ColorContext.Provider value= {"red"}>
+                        <Profile />
+                    </ColorContext.Provider>
+                </UserContext.Provider>
             </div>
         </div>
     );
