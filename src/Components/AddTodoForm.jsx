@@ -4,7 +4,9 @@ import React,{useState} from "react";
 const AddTodoForm = ({ addNewTodo }) => {
     
     const [addTodo, setAddTodo] = useState('');
+
         // addNewTodo(addTodo);
+
     const handleTodo = (e) => {
         e.preventDefault();
         addNewTodo(addTodo);           

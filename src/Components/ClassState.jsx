@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 
 class ClassState extends Component {
-    
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            counter: 0
+        }
+    }
+
 addOne = () => {
             this.setState (prevState => {
                 return {
@@ -10,19 +17,14 @@ addOne = () => {
             })
 }
 
-    constructor(props) {
-        super(props)
-        
-        this.state = {
-            counter: 0
-        }
-    }
+    
     
     render() {
         return (
-            <div>   
-                <p>Class State: {this.state.counter} </p>
-                <button onClick={this.addOne}>State dans class</button>
+            <div>
+                <p>Class State:</p>   
+                <p>Compteur: {this.state.counter} </p>
+                <button onClick={this.addOne}>Ajouter 1</button>
             </div>
         )
     }
