@@ -1,3 +1,5 @@
+import React from "react";
+
 function ProgressBar({count, bgColor, text}) {
     
     console.log(`Pourcentage`);
@@ -6,6 +8,7 @@ function ProgressBar({count, bgColor, text}) {
 
 return (
     <>
+    <div>
         <p className="h1">{count}%</p>
         
         <div className="progress">
@@ -14,6 +17,7 @@ return (
 
             </div>
         </div>
+    </div>
     </> 
 
 )

@@ -2,12 +2,14 @@
 import ClassCount from './Components/ClassCount';
 import FonctionCount from './Components/FonctionCount';
 import Todo from './Components/Todo';
-import {UserContext,ColorContext} from './Components/MyContext';
-import { useState } from 'react';
+import {UserContext, ColorContext} from './Components/MyContext';
+import { useState, useCallback } from 'react';
 import Profile from './Components/Profile';
 import CountReducer from './Components/CountReducer';
 import Button from './Components/Button';
 import ProgressBar from './Components/ProgressBar';
+import ClickSayHello from './Components/ClickSayHello';
+import MyContact from './Components/MyContact';
 
 
 function App() {
@@ -16,17 +18,34 @@ function App() {
         name: "Lisa",
         age: 8,
     });
-const incrementCount1 = (val) => {
-    console.log('je suis ds incrementCount1')
-    count1.value < 100 && setCount1({...count1, value: count1.value + val});
-};
-const incrementCount2 = (val) => {
-    count2.value < 100 && setCount2({...count2, value: count2.value + val});
-    console.log('je suis ds incrementCount1')
-};
+    // const memorizedCallback = useCallback(
+    //     () => {
+    //         doSomething(a, b);
+    //     },
+    //     [a, b],
+    // );
+// const incrementCount1 = (val) => {
+//     console.log('je suis ds incrementCount1')
+//     count1.value < 100 && setCount1({...count1, value: count1.value + val});
+// };
+// const incrementCount2 = (val) => {
+//     count2.value < 100 && setCount2({...count2, value: count2.value + val});
+//     console.log('je suis ds incrementCount1')
+// };
 
 const [count1, setCount1] = useState({value: 0, btnColor: 'success', increment: 25});
 const [count2, setCount2] = useState({value: 0, btnColor: 'danger', increment: 20});
+
+const incrementCount1 = useCallback((val) => {
+    console.log('je suis ds incrementCount1')
+    count1.value < 100 && setCount1({...count1, value: count1.value + val});
+}, [count1]);
+const incrementCount2 = useCallback((val) => {
+    count2.value < 100 && setCount2({...count2, value: count2.value + val});
+    console.log('je suis ds incrementCount2')
+}, [count2]);
+
+
 
     return (
         <div className="container text-center mt-4">
@@ -48,11 +67,13 @@ const [count2, setCount2] = useState({value: 0, btnColor: 'danger', increment: 2
                     </ColorContext.Provider>
                 </UserContext.Provider> */}
                 {/* <CountReducer />  */}
-                <button btnColor={count1.btnColor} increment={count1.increment}>Count 1</button>
+                {/* <button btnColor={count1.btnColor} increment={count1.increment}>Count 1</button>
                 <ProgressBar text="count1" count={count1.value} bgColor={count1.btnColor} />
 
                 <button btnColor={count2.btnColor} increment={count2.increment}>Count 2</button>
-                <ProgressBar text="count2" count={count2.value} bgColor={count2.btnColor} />
+                <ProgressBar text="count2" count={count2.value} bgColor={count2.btnColor} /> */}
+                <ClickSayHello />
+                <MyContact />
             </div>
         </div>
     );
